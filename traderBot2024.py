@@ -28,7 +28,7 @@ class TraderBot:
         spread = tick.ask - tick.bid # ASK-BID
 
         # Ensure buy order is placed only once
-        if not self.has_bought and order_type == 'buy' and self.get_exposure('BTCUSD.i')>0:
+        if not self.has_bought and order_type == 'buy' and self.get_exposure('SYMBOLE')>0:
             take_profit = tick.ask + plus
             request = {
                 "action": mt.TRADE_ACTION_DEAL,
@@ -100,7 +100,7 @@ class TraderBot:
 if __name__ == '__main__':
     # Instantiate the TraderBot
     tbot = TraderBot()
-    SYMBOL = "BTCUSD.i"
+    SYMBOL = "SYMBOLE"
     VOLUME = 0.1  # Updated volume to 0.1 can be changed by user
     TIMEFRAME = mt.TIMEFRAME_M1
     SMA_PERIOD = 10
